@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Smurf = () => {
+const Smurf = ({ smurf }) => {
   return (
     <div>
-      <h4>Individual Smurf</h4>
+      <h4>{smurf.name}</h4>
     </div>
   )
 }
