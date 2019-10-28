@@ -6,9 +6,9 @@ import styled from 'styled-components'
 
 const Smurf = ({ smurf }) => {
   const [updateSmurf, setUpdateSmurf] = useState({
-    name: '',
-    age: '',
-    height: '',
+    name: '' || smurf.name,
+    age: '' || smurf.age,
+    height: '' || smurf.height,
     id: smurf.id
   })
 

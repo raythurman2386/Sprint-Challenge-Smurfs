@@ -14,7 +14,7 @@ const SmurfList = () => {
   }, [])
 
   // see what data the smurfs hold
-  console.log(smurfs)
+  // console.log(smurfs)
 
   return (
     <SmurfWrapper>
