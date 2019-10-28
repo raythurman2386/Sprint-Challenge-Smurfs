@@ -8,9 +8,13 @@ const SmurfList = () => {
   const smurfs = useSelector(state => state.getSmurfs.smurfs)
   const dispatch = useDispatch()
 
+  // fire the action to get the smurfs data to the screen
   useEffect(() => {
     dispatch(getSmurfs())
   }, [])
+
+  // see what data the smurfs hold
+  console.log(smurfs)
 
   return (
     <SmurfWrapper>
