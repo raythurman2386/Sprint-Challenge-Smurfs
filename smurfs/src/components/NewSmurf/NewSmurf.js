@@ -4,22 +4,25 @@ import { postSmurfs } from '../../actions/postActions'
 import styled from 'styled-components'
 
 const NewSmurf = () => {
+  const dispatch = useDispatch()
   const [smurfData, setSmurfData] = useState({
     name: '',
     age: '',
     height: ''
   })
 
+  // HandleChange to take care of the form data
   const handleChange = e => {
-    console.log(e.target.value)
     setSmurfData({
       ...smurfData,
       [e.target.name]: e.target.value
     })
   }
 
+  // Submit to send the dispatch action
   const handleSubmit = e => {
     e.preventDefault()
+    dispatch(postSmurfs(smurfData))
     console.log(smurfData)
   }
 
