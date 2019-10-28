@@ -7,7 +7,7 @@ import SmurfList from './Smurfs/SmurfList'
 const App = () => {
   return (
     <AppWrapper>
-      <AppHeader>SMURFS! 2.0 W/ Redux</AppHeader>
+      <AppHeader>Welcome to your Smurf Village!!</AppHeader>
       <SmurfList />
       <NewSmurf />
     </AppWrapper>
@@ -18,14 +18,15 @@ export default App
 
 const AppWrapper = styled.div`
   text-align: center;
-  color: white;
 `
 const AppHeader = styled.header`
   font-size: 3rem;
-  background-color: #111;
+  background: linear-gradient(180deg, #40a9f3, #6d5eda);
   color: white;
-  height: 4rem;
+  height: 8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 `
