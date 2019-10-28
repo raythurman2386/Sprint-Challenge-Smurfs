@@ -1,7 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteSmurf } from '../../actions/deleteActions'
 import styled from 'styled-components'
 
 const Smurf = ({ smurf }) => {
+  const dispatch = useDispatch()
+
   return (
     <SmurfWrapper>
       <h4>{smurf.name}</h4>
@@ -9,7 +13,7 @@ const Smurf = ({ smurf }) => {
       <p>{smurf.height}</p>
       <ButtonWrapper>
         <Button>Edit</Button>
-        <Button>Delete</Button>
+        <Button onClick={() => dispatch(deleteSmurf(smurf.id))}>Delete</Button>
       </ButtonWrapper>
     </SmurfWrapper>
   )
