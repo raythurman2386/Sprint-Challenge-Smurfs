@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteSmurf } from '../../actions/deleteActions'
 import styled from 'styled-components'
 
 const Smurf = ({ smurf }) => {
+  const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
   return (

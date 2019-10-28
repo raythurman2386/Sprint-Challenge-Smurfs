@@ -6,8 +6,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { reducer as getSmurfReducer } from './reducers'
-import { reducer as postSmurfReducer } from './reducers/postReducer'
-import { reducer as deleteSmurfReducer } from './reducers/deleteReducer'
+// import { reducer as postSmurfReducer } from './reducers/postReducer'
+// import { reducer as deleteSmurfReducer } from './reducers/deleteReducer'
 
 const reducers = combineReducers({
   getSmurfs: getSmurfReducer
