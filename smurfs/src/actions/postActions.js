@@ -7,7 +7,7 @@ export const POST_SMURFS_FAILED = 'GET_SMURFS_FAILED'
 export const postSmurfs = data => dispatch => {
   dispatch({ type: POST_SMURFS_START })
   axios
-    .post(`http://localhost:3333/smurfs`)
-    .then(res => dispatch({ type: POST_SMURFS_SUCCESS, payload: data }))
+    .post(`http://localhost:3333/smurfs`, data)
+    .then(res => console.log(res))
     .catch(err => dispatch({ type: POST_SMURFS_FAILED, payload: err.response }))
 }
