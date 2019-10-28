@@ -1,21 +1,77 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteSmurf } from '../../actions/deleteActions'
+import { editSmurf } from '../../actions/editActions'
 import styled from 'styled-components'
 
 const Smurf = ({ smurf }) => {
+  const [updateSmurf, setUpdateSmurf] = useState({
+    name: '',
+    age: '',
+    height: '',
+    id: smurf.id
+  })
+
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
+  const handleChange = e => {
+    setUpdateSmurf({
+      ...updateSmurf,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    dispatch(editSmurf(updateSmurf))
+  }
+
   return (
     <SmurfWrapper>
-      <h4>{smurf.name}</h4>
-      <p>{smurf.age} Years Old</p>
-      <p>{smurf.height}</p>
-      <ButtonWrapper>
-        <Button>Edit</Button>
-        <Button onClick={() => dispatch(deleteSmurf(smurf.id))}>Delete</Button>
-      </ButtonWrapper>
+      {isEditing ? (
+        <input
+          name='name'
+          value={updateSmurf.name}
+          placeholder={smurf.name}
+          onChange={e => handleChange(e)}
+        />
+      ) : (
+        <h4>{smurf.name}</h4>
+      )}
+
+      {isEditing ? (
+        <input
+          name='age'
+          value={updateSmurf.age}
+          placeholder={smurf.age}
+          onChange={e => handleChange(e)}
+        />
+      ) : (
+        <p>{smurf.age} Years Old</p>
+      )}
+
+      {isEditing ? (
+        <input
+          name='height'
+          value={updateSmurf.height}
+          placeholder={smurf.height}
+          onChange={e => handleChange(e)}
+        />
+      ) : (
+        <p>{smurf.height}</p>
+      )}
+
+      {!isEditing ? (
+        <ButtonWrapper>
+          <Button onClick={() => setIsEditing(!isEditing)}>Edit</Button>
+          <Button onClick={() => dispatch(deleteSmurf(smurf.id))}>
+            Delete
+          </Button>
+        </ButtonWrapper>
+      ) : (
+        <Button onClick={handleSubmit}>Submit</Button>
+      )}
     </SmurfWrapper>
   )
 }
