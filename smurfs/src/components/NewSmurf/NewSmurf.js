@@ -23,7 +23,8 @@ const NewSmurf = () => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(postSmurfs(smurfData))
-    console.log(smurfData)
+    // console.log(smurfData)
+    setSmurfData({ name: '', age: '', height: '' })
   }
 
   return (

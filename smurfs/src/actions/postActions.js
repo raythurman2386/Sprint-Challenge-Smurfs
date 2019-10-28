@@ -8,6 +8,6 @@ export const postSmurfs = data => dispatch => {
   dispatch({ type: POST_SMURFS_START })
   axios
     .post(`http://localhost:3333/smurfs`, data)
-    .then(res => console.log(res))
+    .then(res => dispatch({ type: POST_SMURFS_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: POST_SMURFS_FAILED, payload: err.response }))
 }
