@@ -6,9 +6,11 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { reducer as getSmurfReducer } from './reducers'
+import { reducer as postSmurtReducer } from './reducers/postReducer'
 
 const reducers = combineReducers({
-  getSmurfs: getSmurfReducer
+  getSmurfs: getSmurfReducer,
+  postSmurfs: postSmurtReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))
