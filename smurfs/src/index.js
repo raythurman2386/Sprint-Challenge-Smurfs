@@ -10,9 +10,9 @@ import { reducer as postSmurfReducer } from './reducers/postReducer'
 import { reducer as deleteSmurfReducer } from './reducers/deleteReducer'
 
 const reducers = combineReducers({
-  getSmurfs: getSmurfReducer,
-  postSmurfs: postSmurfReducer,
-  deleteSmurf: deleteSmurfReducer
+  getSmurfs: getSmurfReducer
+  // postSmurfs: postSmurfReducer
+  // deleteSmurf: deleteSmurfReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))
