@@ -5,6 +5,8 @@ import { editSmurf } from '../../actions/editActions'
 import styled from 'styled-components'
 
 const Smurf = ({ smurf }) => {
+  const dispatch = useDispatch()
+  const [isEditing, setIsEditing] = useState(false)
   const [updateSmurf, setUpdateSmurf] = useState({
     name: '' || smurf.name,
     age: '' || smurf.age,
@@ -12,9 +14,7 @@ const Smurf = ({ smurf }) => {
     id: smurf.id
   })
 
-  const [isEditing, setIsEditing] = useState(false)
-  const dispatch = useDispatch()
-
+  // handle the changes to the inputs
   const handleChange = e => {
     setUpdateSmurf({
       ...updateSmurf,
@@ -22,6 +22,7 @@ const Smurf = ({ smurf }) => {
     })
   }
 
+  // dispatch the changes to the reducer
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(editSmurf(updateSmurf))

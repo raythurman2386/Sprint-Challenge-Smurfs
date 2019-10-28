@@ -13,9 +13,6 @@ const SmurfList = () => {
     dispatch(getSmurfs())
   }, [])
 
-  // see what data the smurfs hold
-  // console.log(smurfs)
-
   return (
     <SmurfWrapper>
       {smurfs &&
